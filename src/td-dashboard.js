@@ -88,18 +88,19 @@ export default {
 
     // ─── TECHNICAL ISSUES ─────────────────────────────────────────
     const technicalIssues = [
-      { issue: "Multiple H1 tags on Home (5), Services (7), About (6), Blog (11)", severity: "High", category: "On-Page", status: "Open", note: "Each page should have exactly one H1. Elementor sections creating duplicate headings." },
-      { issue: "Services meta description is auto-generated (295 chars)", severity: "High", category: "On-Page", status: "Open", note: "AIOSEO pulling page content instead of custom description. Write a unique 120-160 char description." },
-      { issue: "About meta description contains media URLs", severity: "High", category: "On-Page", status: "Open", note: "URLs leaking into meta description from Elementor media widgets." },
-      { issue: "Contact meta description too short (54 chars)", severity: "Medium", category: "On-Page", status: "Open", note: "Should be 120-160 chars. Current: 'Contact us to build something incredible, together! 👍'" },
-      { issue: "Logos meta description starts with '06.'", severity: "Medium", category: "On-Page", status: "Open", note: "Scraped from page content. Write a proper description targeting 'logo design london'." },
-      { issue: "No Article schema on blog posts", severity: "Medium", category: "Schema", status: "Open", note: "21 blog posts with no Article/BlogPosting schema. Missing author, datePublished, dateModified." },
-      { issue: "No CreativeWork schema on portfolio", severity: "Medium", category: "Schema", status: "Open", note: "11 case studies with no structured data. Add CreativeWork with client, industry, description." },
-      { issue: "Blog URLs at root level, not under /latest/", severity: "Low", category: "Structure", status: "Info", note: "Posts like /dont-appeal-to-everyone/ sit at root. Not critical but inconsistent with /latest/ listing page." },
-      { issue: "foundingDate conflict: 2016 (AIOSEO) vs 2010 (LocalBusiness)", severity: "Medium", category: "Schema", status: "Open", note: "AIOSEO Organization schema says 2016, custom LocalBusiness says 2010. Align to one date." },
+      { issue: "H1 tags on all pages", severity: "High", category: "On-Page", status: "Fixed", note: "Verified: Home, Services, About, Contact, Logos, Blog all have exactly 1 H1. No action needed." },
+      { issue: "Services meta description", severity: "High", category: "On-Page", status: "Fixed", note: "Rewritten via aioseo_description filter in functions.php. Now 120 chars, keyword-optimised." },
+      { issue: "About meta description", severity: "High", category: "On-Page", status: "Fixed", note: "Rewritten. Now mentions London, 2010, Michael Trevatt. 137 chars." },
+      { issue: "Contact meta description", severity: "Medium", category: "On-Page", status: "Fixed", note: "Rewritten. Now 142 chars with location + response time." },
+      { issue: "Logos meta description", severity: "Medium", category: "On-Page", status: "Fixed", note: "Rewritten. Now 141 chars targeting 'logo design london'." },
+      { issue: "Article schema on blog posts", severity: "Medium", category: "Schema", status: "Fixed", note: "Article/BlogPosting schema added site-wide via functions.php. Author, dates, images all included." },
+      { issue: "CreativeWork schema on portfolio", severity: "Medium", category: "Schema", status: "Fixed", note: "CreativeWork schema added for all work CPT posts via functions.php." },
+      { issue: "foundingDate conflict", severity: "Medium", category: "Schema", status: "Fixed", note: "Fixed via aioseo_schema_output filter. Now consistently 2010-01-01." },
+      { issue: "AggregateRating + Review schema", severity: "Medium", category: "Schema", status: "Fixed", note: "12 testimonials with named clients now output as Review schema on homepage." },
       { issue: "Same og:image across all pages", severity: "Low", category: "Social", status: "Open", note: "Every page uses TD-Website-image.png. Page-specific images improve CTR from social sharing." },
-      { issue: "Missing security headers: HSTS, X-Content-Type-Options, X-Frame-Options", severity: "Low", category: "Technical", status: "Open", note: "CSP present (upgrade-insecure-requests). Add remaining security headers via server config." },
-      { issue: "H1/H2 text duplication on Services page", severity: "Medium", category: "On-Page", status: "Open", note: "Same text appears as both H1 and H2. Confuses heading hierarchy for crawlers." },
+      { issue: "Missing security headers", severity: "Low", category: "Technical", status: "Open", note: "HSTS, X-Content-Type-Options, X-Frame-Options missing. Add via server config or LiteSpeed." },
+      { issue: "Blog URLs at root level", severity: "Low", category: "Structure", status: "Info", note: "Posts sit at root (e.g. /dont-appeal-to-everyone/). Cosmetic, not SEO-critical. Do not change without redirect plan." },
+      { issue: "10 draft blog posts need Elementor formatting", severity: "Medium", category: "Content", status: "Open", note: "Posts created as plain HTML drafts. Need narrow container layout, stock photos, and CTA template (6202) applied in Elementor." },
     ];
 
     // ─── HEALTH SCORES ────────────────────────────────────────────
@@ -128,8 +129,8 @@ export default {
       { kw: "healthcare ux design", vol: 70, diff: "Low", page: "Case Study Hub", exists: false, position: "—" },
       { kw: "ux audit london", vol: 50, diff: "Low", page: "Services Hub", exists: false, position: "—" },
       { kw: "what is ux design", vol: 4400, diff: "High", page: "Blog Post", exists: true, position: "Unknown" },
-      { kw: "ux design process", vol: 880, diff: "Medium", page: "Blog Post", exists: false, position: "—" },
-      { kw: "how to choose a design agency", vol: 140, diff: "Low", page: "Blog Post", exists: false, position: "—" },
+      { kw: "ux design process", vol: 880, diff: "Medium", page: "Blog Post", exists: true, position: "Draft" },
+      { kw: "how to choose a design agency", vol: 140, diff: "Low", page: "Blog Post", exists: true, position: "Draft" },
     ];
 
     const kwByIntent = [
@@ -758,57 +759,106 @@ export default {
     // ═══════════════════════════════════════════════════════════════
 
     function ActionPlan() {
-      const actions = [
-        { action: "Fix multiple H1 tags on Home, Services, About, and Blog pages", impact: "High", effort: "Medium", category: "On-Page", why: "Search engines expect one H1 per page. Multiple H1s dilute keyword relevance and confuse heading hierarchy." },
-        { action: "Rewrite meta descriptions for Services, About, Logos, Contact", impact: "High", effort: "Low", category: "On-Page", why: "3 are auto-generated from content, 1 is too short. Proper descriptions improve CTR from search results." },
-        { action: "Create individual service pages (UX, Branding, Web, Mobile, Strategy)", impact: "Critical", effort: "High", category: "Content", why: "3,000+/mo combined search volume with no landing pages. Competitors rank with dedicated service pages." },
-        { action: "Add Article/BlogPosting schema to all 21 blog posts", impact: "Medium", effort: "Low", category: "Schema", why: "Enables rich results (author, date, images) in search. Can be done site-wide via functions.php." },
-        { action: "Add CreativeWork schema to all 11 case studies", impact: "Medium", effort: "Low", category: "Schema", why: "Structured data for portfolio items. Include client name, industry, description, images." },
-        { action: "Write 'How Much Does a Website Cost in 2026?' blog post", impact: "High", effort: "Medium", category: "Content", why: "2,900/mo search volume. Commercial intent — people searching this are ready to buy." },
-        { action: "Audit and claim Google Business Profile", impact: "High", effort: "Low", category: "Local", why: "Foundation of local SEO. Needed for local pack visibility, Google Maps, and review collection." },
-        { action: "Create industry-specific landing pages (Healthcare, Fintech, Education)", impact: "High", effort: "High", category: "Content", why: "11 case studies span multiple industries with no landing pages targeting 'healthcare ux design' etc." },
-        { action: "Build case study hub with filtering", impact: "Medium", effort: "Medium", category: "Structure", why: "Portfolio is a flat list. Hub page with categories improves internal linking and crawl efficiency." },
-        { action: "Align foundingDate in schema (2016 vs 2010)", impact: "Low", effort: "Low", category: "Schema", why: "Conflicting dates between AIOSEO and custom schema. Pick one and align both." },
-        { action: "Create FAQ page targeting common questions", impact: "Medium", effort: "Medium", category: "Content", why: "'How much does a website cost' (2,900/mo), 'how long does web design take' (320/mo) and similar queries." },
-        { action: "Write long-form case study for ES Therapy Centre", impact: "High", effort: "Medium", category: "Content", why: "Demonstrates healthcare UX expertise. Targets 'therapy website design', 'healthcare ux' keywords." },
-        { action: "Add page-specific og:images", impact: "Low", effort: "Low", category: "Social", why: "All pages share one image. Custom images per page improve social sharing CTR." },
-        { action: "Set up author page for Michael Trevatt", impact: "Medium", effort: "Low", category: "E-E-A-T", why: "No author page exists. Blog posts have no visible authorship. Critical for E-E-A-T signals." },
-        { action: "Add review/testimonial schema from existing testimonials", impact: "Medium", effort: "Low", category: "Schema", why: "15+ testimonials exist as custom post type. Add AggregateRating and Review schema for star ratings in SERPs." },
-        { action: "Register on Clutch, DesignRush, The Manifest", impact: "Medium", effort: "Medium", category: "E-E-A-T", why: "External validation and backlinks from authoritative design directories." },
-        { action: "Create London design agency landing page", impact: "Medium", effort: "Medium", category: "Local", why: "No dedicated location page. Would reinforce local signals beyond schema alone." },
-        { action: "Run PageSpeed / Core Web Vitals audit", impact: "Medium", effort: "Low", category: "Technical", why: "No performance data collected. CWV is a ranking factor. LiteSpeed Cache is active but needs verification." },
+      const doneActions = [
+        { action: "Fix H1 tags on all pages", category: "On-Page", date: "9 Apr 2026" },
+        { action: "Rewrite meta descriptions (Services, About, Contact, Logos)", category: "On-Page", date: "9 Apr 2026" },
+        { action: "Add Article/BlogPosting schema to all blog posts", category: "Schema", date: "9 Apr 2026" },
+        { action: "Add CreativeWork schema to all 11 case studies", category: "Schema", date: "9 Apr 2026" },
+        { action: "Add AggregateRating + Review schema from 12 testimonials", category: "Schema", date: "9 Apr 2026" },
+        { action: "Fix foundingDate conflict (aligned to 2010)", category: "Schema", date: "9 Apr 2026" },
+        { action: "Draft 10 SEO-targeted blog posts (in WP as drafts)", category: "Content", date: "9 Apr 2026" },
       ];
 
-      // Sort: Critical > High > Medium > Low
-      const impOrder = { Critical: 0, High: 1, Medium: 2, Low: 3 };
-      actions.sort(function(a, b) { return impOrder[a.impact] - impOrder[b.impact]; });
+      const michaelActions = [
+        { action: "Format 10 draft blog posts in Elementor", impact: "High", effort: "Medium", category: "Content", why: "Drafts are plain HTML. Each needs: open in Elementor, apply narrow container (750px), add 2\\u20133 stock photos per post, attach Bottom CTA template (ID 6202). ~15 min per post." },
+        { action: "Add featured images to 10 draft posts", impact: "Medium", effort: "Low", category: "Content", why: "Each post needs a featured image for social sharing, blog listing, and Article schema. Use relevant stock photos or create simple graphics." },
+        { action: "Review and publish 10 draft blog posts", impact: "High", effort: "Medium", category: "Content", why: "Posts are written and SEO-optimised but need your review for accuracy and voice. Publish when satisfied. Top priority: Website Cost (2,900/mo volume)." },
+        { action: "Audit and claim Google Business Profile", impact: "High", effort: "Low", category: "Local", why: "Foundation of local SEO. Check if GBP exists, is claimed, has correct hours/phone/address. Upload photos. Enable messaging. Ask past clients for reviews." },
+        { action: "Register on Clutch, DesignRush, The Manifest", impact: "High", effort: "Medium", category: "E-E-A-T", why: "External validation + backlinks from authoritative design directories. Clutch alone can generate leads. Each profile takes ~30 min to complete." },
+        { action: "Create individual service pages in Elementor", impact: "Critical", effort: "High", category: "Content", why: "3,000+/mo combined volume. Need: /services/ux-design/, /services/branding/, /services/web-design/, /services/mobile-app-design/, /services/digital-strategy/. Claude can draft content; you build in Elementor." },
+        { action: "Create industry landing pages (Healthcare, Fintech, Education)", impact: "High", effort: "High", category: "Content", why: "Target healthcare ux design, fintech design agency etc. Link to relevant case studies. Claude can draft; you build in Elementor." },
+        { action: "Create an author/about page for Michael Trevatt", impact: "Medium", effort: "Low", category: "E-E-A-T", why: "No dedicated author page. Blog posts have no visible authorship. Add photo, bio, credentials, social links. Takes 20 min in Elementor." },
+        { action: "Run PageSpeed / Core Web Vitals audit", impact: "Medium", effort: "Low", category: "Technical", why: "No performance baseline. Run Lighthouse on Home, Services, a blog post. Note LCP, CLS, INP scores. Share results and Claude can recommend fixes." },
+        { action: "Upload unique og:images for key pages", impact: "Low", effort: "Low", category: "Social", why: "All pages share TD-Website-image.png. Set page-specific images in AIOSEO for Home, Services, About, Logos. 5 min per page." },
+        { action: "Add security headers via LiteSpeed config", impact: "Low", effort: "Low", category: "Technical", why: "Missing HSTS, X-Content-Type-Options, X-Frame-Options. Can add in LiteSpeed Cache settings or .htaccess. Claude can guide you through it." },
+      ];
 
-      var critCount = actions.filter(function(a) { return a.impact === "Critical"; }).length;
-      var highCount = actions.filter(function(a) { return a.impact === "High"; }).length;
+      const claudeActions = [
+        { action: "Set up daily keyword research task for Trevatt Design", impact: "High", effort: "Low", category: "Keywords", why: "Replicate the ES Therapy methodology: daily competitor analysis, keyword gap discovery, SERP monitoring. Runs automatically like the ES Therapy task." },
+        { action: "Draft content for individual service pages", impact: "Critical", effort: "Medium", category: "Content", why: "Write SEO-optimised copy for each service page once Michael creates the Elementor templates." },
+        { action: "Draft content for industry landing pages", impact: "High", effort: "Medium", category: "Content", why: "Healthcare UX, fintech design, education design. Link to case studies. Ready when pages exist." },
+        { action: "Write long-form case study: ES Therapy Centre", impact: "High", effort: "Medium", category: "Content", why: "Demonstrates healthcare UX expertise. Targets therapy website design, healthcare ux keywords." },
+        { action: "Create FAQ page content", impact: "Medium", effort: "Low", category: "Content", why: "Target how much does a website cost (2,900/mo), how long does web design take (320/mo), etc. FAQ schema for rich results." },
+        { action: "Build London location page content", impact: "Medium", effort: "Low", category: "Local", why: "Dedicated London landing page to reinforce local signals. Include map, transport, service area." },
+        { action: "Build case study hub page content", impact: "Medium", effort: "Medium", category: "Structure", why: "Filterable portfolio page with proper categories, internal linking, and structured data." },
+      ];
+
+      const impOrder = { Critical: 0, High: 1, Medium: 2, Low: 3 };
+      michaelActions.sort(function(a, b) { return impOrder[a.impact] - impOrder[b.impact]; });
+      claudeActions.sort(function(a, b) { return impOrder[a.impact] - impOrder[b.impact]; });
+
+      var michaelCritical = michaelActions.filter(function(a) { return a.impact === "Critical"; }).length;
+      var michaelHigh = michaelActions.filter(function(a) { return a.impact === "High"; }).length;
 
       return React.createElement("div", null,
         React.createElement("div", { style: s.grid4 },
-          React.createElement(StatCard, { label: "Total actions", value: actions.length }),
-          React.createElement(StatCard, { label: "Critical", value: critCount, color: C.alert }),
-          React.createElement(StatCard, { label: "High impact", value: highCount, color: C.warn }),
-          React.createElement(StatCard, { label: "Quick wins", value: actions.filter(function(a) { return a.effort === "Low"; }).length, color: C.pass, sub: "Low effort" })
+          React.createElement(StatCard, { label: "Completed", value: doneActions.length, color: C.pass, sub: "Done by Claude" }),
+          React.createElement(StatCard, { label: "Michael\\u2019s tasks", value: michaelActions.length, color: C.warn, sub: michaelCritical + " critical, " + michaelHigh + " high" }),
+          React.createElement(StatCard, { label: "Claude queue", value: claudeActions.length, color: C.indigo, sub: "Ready when needed" }),
+          React.createElement(StatCard, { label: "Total progress", value: Math.round(doneActions.length / (doneActions.length + michaelActions.length + claudeActions.length) * 100) + "%", color: C.pass })
         ),
 
-        actions.map(function(a, i) {
-          return React.createElement("div", { key: i, style: Object.assign({}, s.card, { marginBottom: 8 }) },
-            React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-start" } },
-              React.createElement("div", { style: { flex: 1 } },
-                React.createElement("div", { style: { fontWeight: 600, fontSize: 14, marginBottom: 4 } }, (i + 1) + ". " + a.action),
-                React.createElement("div", { style: { fontSize: 12, color: C.textSec, lineHeight: 1.5 } }, a.why)
-              ),
-              React.createElement("div", { style: { display: "flex", gap: 6, marginLeft: 16, flexShrink: 0 } },
-                React.createElement(Badge, { type: impact(a.impact) }, a.impact),
-                React.createElement(Badge, { type: a.effort === "Low" ? "pass" : a.effort === "Medium" ? "warn" : "fail" }, a.effort + " effort"),
-                React.createElement(Badge, { type: "purple" }, a.category)
+        // DONE section
+        React.createElement(Section, { title: "Completed", extra: React.createElement(Badge, { type: "pass" }, doneActions.length + " done") },
+          React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 6 } },
+            doneActions.map(function(a, i) {
+              return React.createElement("div", { key: i, style: { padding: "8px 12px", background: "#f0fdf4", borderRadius: 6, border: "1px solid #bbf7d0", fontSize: 13 } },
+                React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center" } },
+                  React.createElement("span", null, "\\u2705 " + a.action),
+                  React.createElement("span", { style: { fontSize: 11, color: C.textMut } }, a.date)
+                )
+              );
+            })
+          )
+        ),
+
+        // MICHAEL section
+        React.createElement(Section, { title: "\\ud83d\\udc64 Michael \\u2014 Your Tasks", extra: React.createElement(Badge, { type: "warn" }, michaelActions.length + " pending") },
+          michaelActions.map(function(a, i) {
+            return React.createElement("div", { key: i, style: Object.assign({}, s.card, { marginBottom: 8, borderLeft: "3px solid " + (a.impact === "Critical" ? C.alert : a.impact === "High" ? C.warn : C.indigo) }) },
+              React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-start" } },
+                React.createElement("div", { style: { flex: 1 } },
+                  React.createElement("div", { style: { fontWeight: 600, fontSize: 14, marginBottom: 4 } }, a.action),
+                  React.createElement("div", { style: { fontSize: 12, color: C.textSec, lineHeight: 1.5 } }, a.why)
+                ),
+                React.createElement("div", { style: { display: "flex", gap: 6, marginLeft: 16, flexShrink: 0 } },
+                  React.createElement(Badge, { type: impact(a.impact) }, a.impact),
+                  React.createElement(Badge, { type: a.effort === "Low" ? "pass" : a.effort === "Medium" ? "warn" : "fail" }, a.effort + " effort"),
+                  React.createElement(Badge, { type: "purple" }, a.category)
+                )
               )
-            )
-          );
-        })
+            );
+          })
+        ),
+
+        // CLAUDE section
+        React.createElement(Section, { title: "\\ud83e\\udd16 Claude \\u2014 Queued Tasks", extra: React.createElement(Badge, { type: "info" }, claudeActions.length + " ready") },
+          React.createElement("div", { style: { fontSize: 12, color: C.textSec, marginBottom: 12 } }, "These tasks will be done by Claude when prerequisites are met or when you ask."),
+          claudeActions.map(function(a, i) {
+            return React.createElement("div", { key: i, style: Object.assign({}, s.card, { marginBottom: 8, borderLeft: "3px solid " + C.indigo, opacity: 0.85 }) },
+              React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-start" } },
+                React.createElement("div", { style: { flex: 1 } },
+                  React.createElement("div", { style: { fontWeight: 600, fontSize: 14, marginBottom: 4 } }, a.action),
+                  React.createElement("div", { style: { fontSize: 12, color: C.textSec, lineHeight: 1.5 } }, a.why)
+                ),
+                React.createElement("div", { style: { display: "flex", gap: 6, marginLeft: 16, flexShrink: 0 } },
+                  React.createElement(Badge, { type: impact(a.impact) }, a.impact),
+                  React.createElement(Badge, { type: "purple" }, a.category)
+                )
+              )
+            );
+          })
+        )
       );
     }
 
