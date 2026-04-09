@@ -1,6 +1,7 @@
 name = "td-seo-dashboard"
 main = "src/index.js"
 compatibility_date = "2024-09-25"
+account_id = "4fc7d82e9ddab0b692e654303105241d"
 
 [vars]
 ENVIRONMENT = "production"
