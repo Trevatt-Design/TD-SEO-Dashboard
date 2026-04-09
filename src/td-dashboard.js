@@ -38,52 +38,52 @@ export default {
 
     // ─── SITE PAGES ───────────────────────────────────────────────
     const sitePages = [
-      { url: "/", name: "Home", title: "Home - Digital Agency, UX & Design - London | UK", titleLen: 52, metaDesc: "Award-winning London digital agency, Trevatt Design, turns ideas into extraordinary experiences through bespoke design solutions.", descLen: 126, h1Count: 5, h1s: ["Digital Design", "Human experience", "Happy clients", "Digital with a pulse", "Let's build something great!"], schema: "BreadcrumbList, Organization, WebSite, LocalBusiness", ogImage: true, canonical: true, keywordTarget: "london digital agency, ux design agency london" },
-      { url: "/services/", name: "Services", title: "Services - Digital Agency, UX & Design - London | UK", titleLen: 53, metaDesc: "Services We innovate, we create, we deliver We work with innovators...", descLen: 295, h1Count: 7, h1s: ["We innovate, we create, we deliver", "Vision with Precision", "User-Centric Design", "Where CreativE Meets Function", "BridgE Gaps, Build Futures", "WORKING WITH US", "Let's see if we click"], schema: "BreadcrumbList, Organization, WebPage, WebSite", ogImage: true, canonical: true, keywordTarget: "ux design services, web design london" },
-      { url: "/about/", name: "About", title: "About - Digital Agency, UX & Design - London | UK", titleLen: 49, metaDesc: "About us London Design Studio We are deeply committed to the human experience...[contains media URLs]", descLen: 280, h1Count: 6, h1s: ["London Design Studio", "We help brands make an impact", "And others make a difference", "What different means to us", "the highest standard", "Let's see if we click"], schema: "BreadcrumbList, Organization, WebPage, WebSite", ogImage: true, canonical: true, keywordTarget: "london design studio, about trevatt design" },
-      { url: "/contact/", name: "Contact", title: "Contact - Digital Agency, UX & Design - London | UK", titleLen: 51, metaDesc: "Contact us to build something incredible, together! 👍", descLen: 54, h1Count: 1, h1s: ["Get a great feeling"], schema: "BreadcrumbList, Organization, WebPage, WebSite", ogImage: true, canonical: true, keywordTarget: "contact design agency london" },
-      { url: "/logos/", name: "Logos", title: "Logos - Digital Agency, UX & Design - London | UK", titleLen: 49, metaDesc: "06. Let's start right now! We have experience at every level of brand development...", descLen: 210, h1Count: 1, h1s: ["Let's start right now!"], schema: "BreadcrumbList, Organization, WebPage, WebSite", ogImage: true, canonical: true, keywordTarget: "logo design london, brand identity" },
-      { url: "/latest/", name: "Blog", title: "Latest - Digital Agency, UX & Design - London | UK", titleLen: 50, metaDesc: "Thoughts on UX, branding, visual design, and building better digital products. Written by a designer, not a content mill.", descLen: 120, h1Count: 11, h1s: ["Latest", "Sales Is Not About Selling...", "Understanding the Power of Price and Value", "3 Ways to Reclaim your Creativity..."], schema: "BreadcrumbList, CollectionPage, Organization, WebSite", ogImage: true, canonical: true, keywordTarget: "ux design blog, design thinking articles" },
+      { url: "/", name: "Home", title: "Home - Digital Agency, UX & Design - London | UK", titleLen: 52, metaDesc: "Award-winning London digital agency, Trevatt Design, turns ideas into extraordinary experiences through bespoke design solutions.", descLen: 126, h1Count: 1, h1s: ["Digital Design"], schema: "BreadcrumbList, Organization, WebSite, LocalBusiness, AggregateRating, Review", ogImage: true, canonical: true, keywordTarget: "london digital agency, ux design agency london" },
+      { url: "/services/", name: "Services", title: "Services - Digital Agency, UX & Design - London | UK", titleLen: 53, metaDesc: "London UX and web design agency. We handle strategy, branding, UI/UX and development for startups and scaling businesses.", descLen: 120, h1Count: 1, h1s: ["We innovate, we create, we deliver"], schema: "BreadcrumbList, Organization, WebPage, WebSite", ogImage: true, canonical: true, keywordTarget: "ux design services, web design london" },
+      { url: "/about/", name: "About", title: "About - Digital Agency, UX & Design - London | UK", titleLen: 49, metaDesc: "Trevatt Design is a London digital agency founded in 2010 by Michael Trevatt. We build websites, apps and brands that put the user first.", descLen: 137, h1Count: 1, h1s: ["London Design Studio"], schema: "BreadcrumbList, Organization, WebPage, WebSite", ogImage: true, canonical: true, keywordTarget: "london design studio, about trevatt design" },
+      { url: "/contact/", name: "Contact", title: "Contact - Digital Agency, UX & Design - London | UK", titleLen: 51, metaDesc: "Get in touch with Trevatt Design. Based in London, available worldwide. Tell us about your project and we will get back to you within 24 hours.", descLen: 142, h1Count: 1, h1s: ["Get a great feeling"], schema: "BreadcrumbList, Organization, WebPage, WebSite", ogImage: true, canonical: true, keywordTarget: "contact design agency london" },
+      { url: "/logos/", name: "Logos", title: "Logos - Digital Agency, UX & Design - London | UK", titleLen: 49, metaDesc: "Logo design and brand identity by Trevatt Design, London. From concept to final mark, we create logos that work across every medium and scale.", descLen: 141, h1Count: 1, h1s: ["Let's start right now!"], schema: "BreadcrumbList, Organization, WebPage, WebSite", ogImage: true, canonical: true, keywordTarget: "logo design london, brand identity" },
+      { url: "/latest/", name: "Blog", title: "Latest - Digital Agency, UX & Design - London | UK", titleLen: 50, metaDesc: "Thoughts on UX, branding, visual design, and building better digital products. Written by a designer, not a content mill.", descLen: 120, h1Count: 1, h1s: ["Latest"], schema: "BreadcrumbList, CollectionPage, Organization, WebSite", ogImage: true, canonical: true, keywordTarget: "ux design blog, design thinking articles" },
     ];
 
     // ─── BLOG POSTS ───────────────────────────────────────────────
     const blogPosts = [
-      { title: "Sales Is Not About Selling", url: "/sales-is-not-about-selling-its-about-helping-your-customers-get-what-they-want/", cluster: "Business", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "Understanding the Power of Price and Value", url: "/understanding-the-power-of-price-and-value/", cluster: "Business", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "3 Ways to Reclaim your Creativity and Productivity", url: "/3-ways-to-reclaim-your-creativity-and-productivity/", cluster: "Productivity", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "5 Simple Ways to Improve the User Experience", url: "/5-simple-ways-to-improve-the-user-experience-on-your-website/", cluster: "UX", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "What is UX Design? A Beginner's Guide", url: "/what-is-ux-design-a-beginners-guide-to-understanding-user-experience-design/", cluster: "UX", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "You Are Your Name", url: "/you-are-your-name/", cluster: "Branding", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "Your Frame of Reference", url: "/your-frame-of-reference/", cluster: "Design thinking", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "Elegant Solutions", url: "/elegant-solutions/", cluster: "Design thinking", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "Coming into Being", url: "/coming-into-being/", cluster: "Design thinking", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "Don't Appeal to Everyone", url: "/dont-appeal-to-everyone/", cluster: "Strategy", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "Genre in Logo Design", url: "/genre-in-logo-design/", cluster: "Branding", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "Exploration of Tone", url: "/exploration-of-tone/", cluster: "Design thinking", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "Exploration of Space", url: "/exploration-of-space/", cluster: "Design thinking", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "An Exploration of Contrast", url: "/an-exploration-of-contrast/", cluster: "Design thinking", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "Simple or Minimal", url: "/simple-or-minimal/", cluster: "Design thinking", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "Why Pretty Works", url: "/why-pretty-works/", cluster: "Design thinking", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "Semiotics: The Interpretation of Symbols", url: "/semiotics-the-interpretation-of-symbols/", cluster: "Design thinking", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "Composition in Web Design", url: "/composition-in-web-design/", cluster: "Design thinking", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "Is Originality Important?", url: "/is-originality-important/", cluster: "Design thinking", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "Demographics vs Psychographics", url: "/demographics-vs-psychographics/", cluster: "Strategy", hasSchema: false, hasMetaDesc: "Check" },
-      { title: "Understanding Visual Literacy", url: "/understanding-visual-literacy/", cluster: "Design thinking", hasSchema: false, hasMetaDesc: "Check" },
+      { title: "Sales Is Not About Selling", url: "/sales-is-not-about-selling-its-about-helping-your-customers-get-what-they-want/", cluster: "Business", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "Understanding the Power of Price and Value", url: "/understanding-the-power-of-price-and-value/", cluster: "Business", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "3 Ways to Reclaim your Creativity and Productivity", url: "/3-ways-to-reclaim-your-creativity-and-productivity/", cluster: "Productivity", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "5 Simple Ways to Improve the User Experience", url: "/5-simple-ways-to-improve-the-user-experience-on-your-website/", cluster: "UX", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "What is UX Design? A Beginner's Guide", url: "/what-is-ux-design-a-beginners-guide-to-understanding-user-experience-design/", cluster: "UX", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "You Are Your Name", url: "/you-are-your-name/", cluster: "Branding", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "Your Frame of Reference", url: "/your-frame-of-reference/", cluster: "Design thinking", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "Elegant Solutions", url: "/elegant-solutions/", cluster: "Design thinking", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "Coming into Being", url: "/coming-into-being/", cluster: "Design thinking", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "Don't Appeal to Everyone", url: "/dont-appeal-to-everyone/", cluster: "Strategy", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "Genre in Logo Design", url: "/genre-in-logo-design/", cluster: "Branding", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "Exploration of Tone", url: "/exploration-of-tone/", cluster: "Design thinking", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "Exploration of Space", url: "/exploration-of-space/", cluster: "Design thinking", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "An Exploration of Contrast", url: "/an-exploration-of-contrast/", cluster: "Design thinking", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "Simple or Minimal", url: "/simple-or-minimal/", cluster: "Design thinking", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "Why Pretty Works", url: "/why-pretty-works/", cluster: "Design thinking", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "Semiotics: The Interpretation of Symbols", url: "/semiotics-the-interpretation-of-symbols/", cluster: "Design thinking", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "Composition in Web Design", url: "/composition-in-web-design/", cluster: "Design thinking", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "Is Originality Important?", url: "/is-originality-important/", cluster: "Design thinking", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "Demographics vs Psychographics", url: "/demographics-vs-psychographics/", cluster: "Strategy", hasSchema: true, hasMetaDesc: "Check"},
+      { title: "Understanding Visual Literacy", url: "/understanding-visual-literacy/", cluster: "Design thinking", hasSchema: true, hasMetaDesc: "Check"},
     ];
 
     // ─── PORTFOLIO / CASE STUDIES ─────────────────────────────────
     const caseStudies = [
-      { title: "ES Therapy Centre", url: "/work/es-therapy-centre/", hasSchema: false, industry: "Healthcare" },
-      { title: "Truphone Digital eSIM", url: "/work/truphone-digital-esim-technology/", hasSchema: false, industry: "Telecoms" },
-      { title: "Dinner Twist", url: "/work/dinner-twist-local-healthy-delivered/", hasSchema: false, industry: "Food & Delivery" },
-      { title: "Eternal Eve", url: "/work/eternal-eve-social-platform/", hasSchema: false, industry: "Social Platform" },
-      { title: "Icetana AI Surveillance", url: "/work/icetana-ia-powered-surveillance/", hasSchema: false, industry: "AI / Security" },
-      { title: "My Life Story (Dementia App)", url: "/work/my-life-story-dementia-app/", hasSchema: false, industry: "Healthcare" },
-      { title: "Our Online Canteen", url: "/work/our-online-canteen-ecommerce-for-schools/", hasSchema: false, industry: "Education" },
-      { title: "My Local Savings", url: "/work/my-local-savings-super-market-aggregator/", hasSchema: false, industry: "Retail / Fintech" },
-      { title: "Rapport Employee Engagement", url: "/work/rapport-employee-engagement-platform/", hasSchema: false, industry: "HR Tech" },
-      { title: "Lunch Break Networking", url: "/work/lunch-break-professional-networking/", hasSchema: false, industry: "Networking" },
-      { title: "Remotify Remote Hiring", url: "/work/remotify-scalable-cost-effective-remote-hiring/", hasSchema: false, industry: "HR Tech" },
+      { title: "ES Therapy Centre", url: "/work/es-therapy-centre/", hasSchema: true, industry: "Healthcare" },
+      { title: "Truphone Digital eSIM", url: "/work/truphone-digital-esim-technology/", hasSchema: true, industry: "Telecoms" },
+      { title: "Dinner Twist", url: "/work/dinner-twist-local-healthy-delivered/", hasSchema: true, industry: "Food & Delivery" },
+      { title: "Eternal Eve", url: "/work/eternal-eve-social-platform/", hasSchema: true, industry: "Social Platform" },
+      { title: "Icetana AI Surveillance", url: "/work/icetana-ia-powered-surveillance/", hasSchema: true, industry: "AI / Security" },
+      { title: "My Life Story (Dementia App)", url: "/work/my-life-story-dementia-app/", hasSchema: true, industry: "Healthcare" },
+      { title: "Our Online Canteen", url: "/work/our-online-canteen-ecommerce-for-schools/", hasSchema: true, industry: "Education" },
+      { title: "My Local Savings", url: "/work/my-local-savings-super-market-aggregator/", hasSchema: true, industry: "Retail / Fintech" },
+      { title: "Rapport Employee Engagement", url: "/work/rapport-employee-engagement-platform/", hasSchema: true, industry: "HR Tech" },
+      { title: "Lunch Break Networking", url: "/work/lunch-break-professional-networking/", hasSchema: true, industry: "Networking" },
+      { title: "Remotify Remote Hiring", url: "/work/remotify-scalable-cost-effective-remote-hiring/", hasSchema: true, industry: "HR Tech" },
     ];
 
     // ─── TECHNICAL ISSUES ─────────────────────────────────────────
@@ -105,11 +105,11 @@ export default {
     // ─── HEALTH SCORES ────────────────────────────────────────────
     const healthScores = [
       { area: "Technical SEO", score: 72, items: "HTTPS, sitemap, robots.txt all good. LiteSpeed caching active. Missing security headers. No performance audit done." },
-      { area: "On-Page SEO", score: 38, items: "Multiple H1s on 4/6 pages. 3 broken meta descriptions (auto-generated/too short/URLs). H1/H2 duplication." },
-      { area: "Content", score: 45, items: "21 blog posts but all design-thinking essays. No service-focused content. No case study write-ups optimised for search." },
-      { area: "Schema", score: 65, items: "LocalBusiness site-wide. Page-specific schema on main pages. No Article or CreativeWork schema." },
-      { area: "Local SEO", score: 30, items: "No Google Business Profile audit. No local landing pages. No reviews strategy. Location in schema only." },
-      { area: "E-E-A-T", score: 40, items: "Founder name in schema. No author pages, no credentials/awards visible, no client testimonials schema, thin about page SEO." },
+      { area: "On-Page SEO", score: 78, items: "All pages have single H1. Meta descriptions rewritten for Services, About, Contact, Logos. Heading hierarchy clean." },
+      { area: "Content", score: 58, items: "21 existing posts + 10 new SEO-targeted drafts ready for review. No case study write-ups optimised for search yet." },
+      { area: "Schema", score: 90, items: "LocalBusiness + AggregateRating + Review on homepage. Article schema on all blog posts. CreativeWork on case studies. foundingDate fixed." },
+      { area: "Local SEO", score: 38, items: "Review schema now active. Still no Google Business Profile audit, no local landing pages. Location in schema." },
+      { area: "E-E-A-T", score: 52, items: "Founder named in schema + Article author. 12 testimonials with Review schema. Still no author pages or credentials page." },
       { area: "Link Authority", score: 25, items: "No backlink audit done. No guest posting strategy. Social profiles linked but no active link building." },
     ];
 
@@ -167,16 +167,16 @@ export default {
 
     // ─── CONTENT PLAN ─────────────────────────────────────────────
     const blogTopics = [
-      { title: "How Much Does a Website Cost in 2026?", cluster: "Commercial", volume: "2,900/mo", priority: "TOP", status: "Not started" },
-      { title: "How to Choose a Web Design Agency", cluster: "Commercial", volume: "140/mo", priority: "TOP", status: "Not started" },
-      { title: "UX Design Process: A Complete Guide", cluster: "UX", volume: "880/mo", priority: "High", status: "Not started" },
-      { title: "Website Redesign Checklist", cluster: "Commercial", volume: "320/mo", priority: "High", status: "Not started" },
-      { title: "What Makes a Good Portfolio Website?", cluster: "Design", volume: "210/mo", priority: "High", status: "Not started" },
-      { title: "Branding vs Logo Design: What's the Difference?", cluster: "Branding", volume: "170/mo", priority: "Medium", status: "Not started" },
-      { title: "How UX Design Improves Conversion Rates", cluster: "UX", volume: "110/mo", priority: "Medium", status: "Not started" },
-      { title: "Design Systems: Why Your Business Needs One", cluster: "UX", volume: "90/mo", priority: "Medium", status: "Not started" },
-      { title: "Mobile App Design: Native vs Cross-Platform UX", cluster: "Mobile", volume: "150/mo", priority: "Medium", status: "Not started" },
-      { title: "Accessibility in Web Design: A Business Case", cluster: "UX", volume: "70/mo", priority: "Medium", status: "Not started" },
+      { title: "How Much Does a Website Cost in 2026?", cluster: "Commercial", volume: "2,900/mo", priority: "TOP", status: "Draft"},
+      { title: "How to Choose a Web Design Agency", cluster: "Commercial", volume: "140/mo", priority: "TOP", status: "Draft"},
+      { title: "UX Design Process: A Complete Guide", cluster: "UX", volume: "880/mo", priority: "High", status: "Draft"},
+      { title: "Website Redesign Checklist", cluster: "Commercial", volume: "320/mo", priority: "High", status: "Draft"},
+      { title: "What Makes a Good Portfolio Website?", cluster: "Design", volume: "210/mo", priority: "High", status: "Draft"},
+      { title: "Branding vs Logo Design: What's the Difference?", cluster: "Branding", volume: "170/mo", priority: "Medium", status: "Draft"},
+      { title: "How UX Design Improves Conversion Rates", cluster: "UX", volume: "110/mo", priority: "Medium", status: "Draft"},
+      { title: "Design Systems: Why Your Business Needs One", cluster: "UX", volume: "90/mo", priority: "Medium", status: "Draft"},
+      { title: "Mobile App Design: Native vs Cross-Platform UX", cluster: "Mobile", volume: "150/mo", priority: "Medium", status: "Draft"},
+      { title: "Accessibility in Web Design: A Business Case", cluster: "UX", volume: "70/mo", priority: "Medium", status: "Draft"},
     ];
 
     const caseStudyContent = [
@@ -190,7 +190,7 @@ export default {
       { item: "Google Business Profile", status: "Unknown", note: "Not audited. Need to verify GBP exists, is claimed, and has correct info." },
       { item: "NAP Consistency", status: "Partial", note: "Name + phone in schema. No street address (London only). Check GBP, social profiles, directories." },
       { item: "Local schema markup", status: "Done", note: "LocalBusiness schema site-wide via functions.php with address, phone, social links." },
-      { item: "Reviews / Testimonials", status: "Missing", note: "No Google reviews visible. No review schema. Testimonials exist on site but not structured." },
+      { item: "Reviews / Testimonials", status: "Done", note: "AggregateRating + individual Review schema from 12 testimonials on homepage via functions.php." },
       { item: "Local directory listings", status: "Unknown", note: "Not audited. Check Clutch, DesignRush, The Manifest, Bark, Yell, etc." },
       { item: "Location page", status: "Missing", note: "No dedicated London/UK landing page to reinforce local signals." },
       { item: "Local content", status: "Missing", note: "No London-focused blog posts or guides. No 'design agencies in London' comparison content." },
@@ -208,7 +208,7 @@ export default {
     const eeatSignals = [
       { signal: "Author/Founder visibility", status: "Partial", note: "Michael Trevatt named in schema as founder. No dedicated author page or bio on blog posts." },
       { signal: "Credentials & Awards", status: "Missing", note: "Award-winning mentioned in meta but no awards page, no badge markup, no specific awards listed." },
-      { signal: "Client testimonials", status: "Partial", note: "Testimonials exist (wpm-testimonial CPT, 15+ entries) but no Review schema, not on service pages." },
+      { signal: "Client testimonials", status: "Good", note: "12 testimonials with AggregateRating + Review schema on homepage. Individual reviews attributed to named clients." },
       { signal: "Case study depth", status: "Weak", note: "Portfolio pages exist but are image-heavy with minimal text. No metrics, no process description, no results." },
       { signal: "External validation", status: "Missing", note: "No Clutch/DesignRush profile linked. No press mentions. No guest posts on other sites." },
       { signal: "Social proof", status: "Partial", note: "Instagram, LinkedIn, Medium, Pinterest, Facebook in schema. Activity level unknown." },
@@ -402,7 +402,7 @@ export default {
         ),
 
         // Blog posts
-        React.createElement(Section, { title: "Blog Posts (" + blogPosts.length + ")", extra: React.createElement(Badge, { type: "fail" }, "No Article schema") },
+        React.createElement(Section, { title: "Blog Posts (" + blogPosts.length + ")", extra: React.createElement(Badge, { type: "pass" }, "Article schema active") },
           React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 8 } },
             blogPosts.map(function(p) {
               return React.createElement("div", { key: p.url, style: { padding: "8px 12px", background: C.borderLight, borderRadius: 6, fontSize: 12 } },
