@@ -228,9 +228,9 @@ export const DASHBOARD_UI = `<!DOCTYPE html>
 </head>
 <body>
 <div id="root"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"><\/script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"><\/script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"><\/script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></` + `script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></` + `script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></` + `script>
 <script type="text/babel">
 const { useState, useEffect, useCallback } = React;
 
@@ -525,6 +525,6 @@ function App() {
 }
 
 ReactDOM.render(React.createElement(App), document.getElementById('root'));
-<\/script>
+</` + `script>
 </body>
 </html>`;
