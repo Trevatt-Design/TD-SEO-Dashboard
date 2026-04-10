@@ -116,19 +116,19 @@ export default {
 
     // ─── KEYWORDS ─────────────────────────────────────────────────
     const topKeywords = [
-      { kw: "ux design agency london", vol: 320, diff: "High", page: "Homepage", exists: true, position: "Unknown" },
-      { kw: "london digital agency", vol: 260, diff: "High", page: "Homepage", exists: true, position: "Unknown" },
-      { kw: "web design agency london", vol: 1300, diff: "High", page: "Services", exists: true, position: "Unknown" },
-      { kw: "branding agency london", vol: 720, diff: "High", page: "Services", exists: false, position: "—" },
-      { kw: "logo design london", vol: 480, diff: "Medium", page: "Logos", exists: true, position: "Unknown" },
-      { kw: "ux design services", vol: 210, diff: "Medium", page: "Services", exists: true, position: "Unknown" },
-      { kw: "app design agency london", vol: 170, diff: "Medium", page: "Services Hub", exists: false, position: "—" },
-      { kw: "digital design agency uk", vol: 140, diff: "Medium", page: "Homepage", exists: true, position: "Unknown" },
-      { kw: "website redesign agency", vol: 110, diff: "Low", page: "Services Hub", exists: false, position: "—" },
-      { kw: "startup design agency", vol: 90, diff: "Low", page: "New Page", exists: false, position: "—" },
-      { kw: "healthcare ux design", vol: 70, diff: "Low", page: "Case Study Hub", exists: false, position: "—" },
-      { kw: "ux audit london", vol: 50, diff: "Low", page: "Services Hub", exists: false, position: "—" },
-      { kw: "what is ux design", vol: 4400, diff: "High", page: "Blog Post", exists: true, position: "Unknown" },
+      { kw: "ux design agency london", vol: 320, diff: "High", page: "Homepage", exists: true, position: "20+" },
+      { kw: "london digital agency", vol: 260, diff: "High", page: "Homepage", exists: true, position: "20+" },
+      { kw: "web design agency london", vol: 1300, diff: "High", page: "Services", exists: true, position: "20+" },
+      { kw: "branding agency london", vol: 720, diff: "High", page: "Services", exists: false, position: "20+" },
+      { kw: "logo design london", vol: 480, diff: "Medium", page: "Logos", exists: true, position: "20+" },
+      { kw: "ux design services", vol: 210, diff: "Medium", page: "Services", exists: true, position: "20+" },
+      { kw: "app design agency london", vol: 170, diff: "Medium", page: "Services Hub", exists: false, position: "20+" },
+      { kw: "digital design agency uk", vol: 140, diff: "Medium", page: "Homepage", exists: true, position: "20+" },
+      { kw: "website redesign agency", vol: 110, diff: "Low", page: "Services Hub", exists: false, position: "20+" },
+      { kw: "startup design agency", vol: 90, diff: "Low", page: "New Page", exists: false, position: "20+" },
+      { kw: "healthcare ux design", vol: 70, diff: "Low", page: "Case Study Hub", exists: false, position: "20+" },
+      { kw: "ux audit london", vol: 50, diff: "Low", page: "Services Hub", exists: false, position: "20+" },
+      { kw: "what is ux design", vol: 4400, diff: "High", page: "Blog Post", exists: true, position: "20+" },
       { kw: "ux design process", vol: 880, diff: "Medium", page: "Blog Post", exists: true, position: "Draft" },
       { kw: "how to choose a design agency", vol: 140, diff: "Low", page: "Blog Post", exists: true, position: "Draft" },
     ];
@@ -148,11 +148,11 @@ export default {
 
     // ─── COMPETITORS ──────────────────────────────────────────────
     const competitors = [
-      { name: "Clay (clay.global)", threat: "High", type: "Premium", note: "Award-winning, strong backlink profile. Targets premium market segment." },
-      { name: "Made by Shape", threat: "High", type: "Direct", note: "Manchester but ranks for London terms. Strong portfolio + blog SEO." },
-      { name: "Clearleft", threat: "Medium", type: "UX-focused", note: "UX consultancy, strong thought leadership content and conference presence." },
-      { name: "Supercreative", threat: "Medium", type: "Direct", note: "London-based, similar size. Good portfolio SEO with case study schema." },
-      { name: "Bureau", threat: "Medium", type: "Boutique", note: "Small agency, ranks well for niche design terms. Strong local SEO." },
+      { name: "Clay (clay.global)", threat: "High", type: "Premium", note: "SF-based, serves startups to Fortune 500. Strong blog + case studies. Individual service pages (UX, Branding, Web, Web3). Content-heavy SEO strategy." },
+      { name: "Made by Shape", threat: "High", type: "Direct", note: "Manchester, since 2010. 445+ dev posts, 118+ design posts, 131+ branding posts. Ranks for 7,500+ keywords. Craft CMS authority. Strong local SEO." },
+      { name: "Clearleft", threat: "Medium", type: "UX-focused", note: "UK's first UX agency. Thought leadership on design systems, accessibility, AI. Podcast. 50+ articles. Service pages for Design Systems, DesOps, Research." },
+      { name: "Supercreative", threat: "Low", type: "Educational", note: "Pivoted to courses/tools. Curated '1000 Websites' list. Minimal traditional SEO. Less direct competitor than initially thought." },
+      { name: "Bureau Bureau", threat: "Low", type: "Boutique", note: "London brand strategy studio. Clean positioning but light content footprint. 'Bureau' is generic term, hard to rank for." },
       { name: "Else London", threat: "Low", type: "Branding", note: "Branding focused. Limited web presence but good social following." },
     ];
 
