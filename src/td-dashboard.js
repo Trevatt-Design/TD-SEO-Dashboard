@@ -100,17 +100,17 @@ export default {
       { issue: "Same og:image across all pages", severity: "Low", category: "Social", status: "Open", note: "Every page uses TD-Website-image.png. Page-specific images improve CTR from social sharing." },
       { issue: "Missing security headers", severity: "Low", category: "Technical", status: "Open", note: "HSTS, X-Content-Type-Options, X-Frame-Options missing. Add via server config or LiteSpeed." },
       { issue: "Blog URLs at root level", severity: "Low", category: "Structure", status: "Info", note: "Posts sit at root (e.g. /dont-appeal-to-everyone/). Cosmetic, not SEO-critical. Do not change without redirect plan." },
-      { issue: "10 draft blog posts need Elementor formatting", severity: "Medium", category: "Content", status: "Open", note: "Posts created as plain HTML drafts. Need narrow container layout, stock photos, and CTA template (6202) applied in Elementor." },
+      { issue: "10 draft blog posts styled + images added", severity: "Medium", category: "Content", status: "Fixed", note: "CSS styling, inline images, auto-CTA, and author box all applied via functions.php. No Elementor needed." },
     ];
 
     // ─── HEALTH SCORES ────────────────────────────────────────────
     const healthScores = [
       { area: "Technical SEO", score: 72, items: "HTTPS, sitemap, robots.txt all good. LiteSpeed caching active. Missing security headers. No performance audit done." },
       { area: "On-Page SEO", score: 78, items: "All pages have single H1. Meta descriptions rewritten for Services, About, Contact, Logos. Heading hierarchy clean." },
-      { area: "Content", score: 58, items: "21 existing posts + 10 new SEO-targeted drafts ready for review. No case study write-ups optimised for search yet." },
+      { area: "Content", score: 68, items: "21 existing posts + 10 new SEO-targeted drafts with images, styling, and auto-CTA. Ready for review and publish. No case study write-ups optimised yet." },
       { area: "Schema", score: 90, items: "LocalBusiness + AggregateRating + Review on homepage. Article schema on all blog posts. CreativeWork on case studies. foundingDate fixed." },
       { area: "Local SEO", score: 38, items: "Review schema now active. Still no Google Business Profile audit, no local landing pages. Location in schema." },
-      { area: "E-E-A-T", score: 52, items: "Founder named in schema + Article author. 12 testimonials with Review schema. Still no author pages or credentials page." },
+      { area: "E-E-A-T", score: 62, items: "Author box on all posts with bio. Founder in schema + Article author. 12 testimonials with Review schema. Dedicated credentials page still recommended." },
       { area: "Link Authority", score: 25, items: "No backlink audit done. No guest posting strategy. Social profiles linked but no active link building." },
     ];
 
@@ -767,17 +767,21 @@ export default {
         { action: "Add AggregateRating + Review schema from 12 testimonials", category: "Schema", date: "9 Apr 2026" },
         { action: "Fix foundingDate conflict (aligned to 2010)", category: "Schema", date: "9 Apr 2026" },
         { action: "Draft 10 SEO-targeted blog posts (in WP as drafts)", category: "Content", date: "9 Apr 2026" },
+        { action: "Style blog posts with CSS to match Elementor layout", category: "Content", date: "10 Apr 2026" },
+        { action: "Add inline images to all 10 draft posts", category: "Content", date: "10 Apr 2026" },
+        { action: "Add auto-CTA section to non-Elementor posts", category: "Content", date: "10 Apr 2026" },
+        { action: "Enable Blocksy author box + boxed content style", category: "E-E-A-T", date: "10 Apr 2026" },
+        { action: "Set up WordPress author profile (Michael Trevatt)", category: "E-E-A-T", date: "10 Apr 2026" },
       ];
 
       const michaelActions = [
-        { action: "Format 10 draft blog posts in Elementor", impact: "High", effort: "Medium", category: "Content", why: "Drafts are plain HTML. Each needs: open in Elementor, apply narrow container (750px), add 2\\u20133 stock photos per post, attach Bottom CTA template (ID 6202). ~15 min per post." },
-        { action: "Add featured images to 10 draft posts", impact: "Medium", effort: "Low", category: "Content", why: "Each post needs a featured image for social sharing, blog listing, and Article schema. Use relevant stock photos or create simple graphics." },
-        { action: "Review and publish 10 draft blog posts", impact: "High", effort: "Medium", category: "Content", why: "Posts are written and SEO-optimised but need your review for accuracy and voice. Publish when satisfied. Top priority: Website Cost (2,900/mo volume)." },
+        { action: "Review and publish 10 draft blog posts", impact: "High", effort: "Medium", category: "Content", why: "Posts are written, styled, and have images + CTA. Need your review for accuracy and voice before publishing. Top priority: Website Cost (2,900/mo volume)." },
+        { action: "Add featured images for social sharing", impact: "Medium", effort: "Low", category: "Content", why: "Posts have inline images but need a featured image set in WP for og:image and blog listing thumbnails. 2 min per post in the editor." },
         { action: "Audit and claim Google Business Profile", impact: "High", effort: "Low", category: "Local", why: "Foundation of local SEO. Check if GBP exists, is claimed, has correct hours/phone/address. Upload photos. Enable messaging. Ask past clients for reviews." },
         { action: "Register on Clutch, DesignRush, The Manifest", impact: "High", effort: "Medium", category: "E-E-A-T", why: "External validation + backlinks from authoritative design directories. Clutch alone can generate leads. Each profile takes ~30 min to complete." },
         { action: "Create individual service pages in Elementor", impact: "Critical", effort: "High", category: "Content", why: "3,000+/mo combined volume. Need: /services/ux-design/, /services/branding/, /services/web-design/, /services/mobile-app-design/, /services/digital-strategy/. Claude can draft content; you build in Elementor." },
         { action: "Create industry landing pages (Healthcare, Fintech, Education)", impact: "High", effort: "High", category: "Content", why: "Target healthcare ux design, fintech design agency etc. Link to relevant case studies. Claude can draft; you build in Elementor." },
-        { action: "Create an author/about page for Michael Trevatt", impact: "Medium", effort: "Low", category: "E-E-A-T", why: "No dedicated author page. Blog posts have no visible authorship. Add photo, bio, credentials, social links. Takes 20 min in Elementor." },
+        { action: "Create a dedicated author/credentials page", impact: "Medium", effort: "Low", category: "E-E-A-T", why: "Author box now shows on all posts with bio. A standalone /about/michael-trevatt/ page with credentials, awards, and social links would strengthen E-E-A-T further." },
         { action: "Run PageSpeed / Core Web Vitals audit", impact: "Medium", effort: "Low", category: "Technical", why: "No performance baseline. Run Lighthouse on Home, Services, a blog post. Note LCP, CLS, INP scores. Share results and Claude can recommend fixes." },
         { action: "Upload unique og:images for key pages", impact: "Low", effort: "Low", category: "Social", why: "All pages share TD-Website-image.png. Set page-specific images in AIOSEO for Home, Services, About, Logos. 5 min per page." },
         { action: "Add security headers via LiteSpeed config", impact: "Low", effort: "Low", category: "Technical", why: "Missing HSTS, X-Content-Type-Options, X-Frame-Options. Can add in LiteSpeed Cache settings or .htaccess. Claude can guide you through it." },
