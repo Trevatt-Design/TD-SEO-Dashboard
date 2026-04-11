@@ -192,7 +192,7 @@ export default {
       { item: "NAP Consistency", status: "Done", note: "Name, address (169 Rotherhithe St, SE16 5SZ), phone (07408 804767) match across GBP, schema, and site." },
       { item: "Local schema markup", status: "Done", note: "LocalBusiness schema site-wide via functions.php with address, phone, social links." },
       { item: "Reviews / Testimonials", status: "Done", note: "AggregateRating + individual Review schema from 12 testimonials on homepage via functions.php." },
-      { item: "Local directory listings", status: "Unknown", note: "Not audited. Check Clutch, DesignRush, The Manifest, Bark, Yell, etc." },
+      { item: "Local directory listings", status: "Weak", note: "Audited 11 Apr. NOT listed on: Clutch, DesignRush, The Manifest, Bark, Yell, Yelp. IS on: ZoomInfo (auto-scraped), MyLocalServices (old Gillingham address), LinkedIn, Facebook, Instagram. High-value backlink opportunities missing." },
       { item: "Location page", status: "Missing", note: "No dedicated London/UK landing page to reinforce local signals." },
       { item: "Local content", status: "Missing", note: "No London-focused blog posts or guides. No 'design agencies in London' comparison content." },
     ];
