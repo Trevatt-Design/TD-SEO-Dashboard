@@ -109,7 +109,7 @@ export default {
       { area: "On-Page SEO", score: 78, items: "All pages have single H1. Meta descriptions rewritten for Services, About, Contact, Logos. Heading hierarchy clean." },
       { area: "Content", score: 68, items: "21 existing posts + 10 new SEO-targeted drafts with images, styling, and auto-CTA. Ready for review and publish. No case study write-ups optimised yet." },
       { area: "Schema", score: 90, items: "LocalBusiness + AggregateRating + Review on homepage. Article schema on all blog posts. CreativeWork on case studies. foundingDate fixed." },
-      { area: "Local SEO", score: 38, items: "Review schema now active. Still no Google Business Profile audit, no local landing pages. Location in schema." },
+      { area: "Local SEO", score: 48, items: "GBP verified: 5.0★ (1 review), correct NAP, Mon-Fri 9-5. Needs: more reviews, photos, GBP posts, services list, local landing page." },
       { area: "E-E-A-T", score: 62, items: "Author box on all posts with bio. Founder in schema + Article author. 12 testimonials with Review schema. Dedicated credentials page still recommended." },
       { area: "Link Authority", score: 25, items: "No backlink audit done. No guest posting strategy. Social profiles linked but no active link building." },
     ];
@@ -188,8 +188,8 @@ export default {
 
     // ─── LOCAL SEO ────────────────────────────────────────────────
     const localChecks = [
-      { item: "Google Business Profile", status: "Unknown", note: "Not audited. Need to verify GBP exists, is claimed, and has correct info." },
-      { item: "NAP Consistency", status: "Partial", note: "Name + phone in schema. No street address (London only). Check GBP, social profiles, directories." },
+      { item: "Google Business Profile", status: "Claimed", note: "5.0★ (1 review). Category: Design agency. Hours: Mon-Fri 9-5. Phone: 07408 804767. No photos uploaded, no GBP posts, no services listed. Needs: photos (office, work samples), weekly posts, services list, more reviews." },
+      { item: "NAP Consistency", status: "Done", note: "Name, address (169 Rotherhithe St, SE16 5SZ), phone (07408 804767) match across GBP, schema, and site." },
       { item: "Local schema markup", status: "Done", note: "LocalBusiness schema site-wide via functions.php with address, phone, social links." },
       { item: "Reviews / Testimonials", status: "Done", note: "AggregateRating + individual Review schema from 12 testimonials on homepage via functions.php." },
       { item: "Local directory listings", status: "Unknown", note: "Not audited. Check Clutch, DesignRush, The Manifest, Bark, Yell, etc." },
@@ -777,7 +777,7 @@ export default {
       const michaelActions = [
         { action: "Review and publish 10 draft blog posts", impact: "High", effort: "Medium", category: "Content", why: "Posts are written, styled, and have images + CTA. Need your review for accuracy and voice before publishing. Top priority: Website Cost (2,900/mo volume)." },
         { action: "Add featured images for social sharing", impact: "Medium", effort: "Low", category: "Content", why: "Posts have inline images but need a featured image set in WP for og:image and blog listing thumbnails. 2 min per post in the editor." },
-        { action: "Audit and claim Google Business Profile", impact: "High", effort: "Low", category: "Local", why: "Foundation of local SEO. Check if GBP exists, is claimed, has correct hours/phone/address. Upload photos. Enable messaging. Ask past clients for reviews." },
+        { action: "Optimise Google Business Profile", impact: "High", effort: "Low", category: "Local", why: "GBP claimed & verified. Next: upload 10+ project photos, add services list, write first GBP post, ask 3-5 past clients for reviews. Only 1 review currently." },
         { action: "Register on Clutch, DesignRush, The Manifest", impact: "High", effort: "Medium", category: "E-E-A-T", why: "External validation + backlinks from authoritative design directories. Clutch alone can generate leads. Each profile takes ~30 min to complete." },
         { action: "Create individual service pages in Elementor", impact: "Critical", effort: "High", category: "Content", why: "3,000+/mo combined volume. Need: /services/ux-design/, /services/branding/, /services/web-design/, /services/mobile-app-design/, /services/digital-strategy/. Claude can draft content; you build in Elementor." },
         { action: "Create industry landing pages (Healthcare, Fintech, Education)", impact: "High", effort: "High", category: "Content", why: "Target healthcare ux design, fintech design agency etc. Link to relevant case studies. Claude can draft; you build in Elementor." },
