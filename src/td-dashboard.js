@@ -127,16 +127,25 @@ export default {
       { kw: "website redesign agency", vol: 110, diff: "Low", page: "Services Hub", exists: false, position: "20+" },
       { kw: "startup design agency", vol: 90, diff: "Low", page: "New Page", exists: false, position: "20+" },
       { kw: "healthcare ux design", vol: 70, diff: "Low", page: "Case Study Hub", exists: false, position: "20+" },
-      { kw: "ux audit london", vol: 50, diff: "Low", page: "Services Hub", exists: false, position: "20+" },
+      { kw: "ux audit london", vol: 140, diff: "Medium", page: "/services/ux-audit/", exists: false, position: "20+" },
       { kw: "what is ux design", vol: 4400, diff: "High", page: "Blog Post", exists: true, position: "20+" },
       { kw: "ux design process", vol: 880, diff: "Medium", page: "Blog Post", exists: true, position: "Draft" },
       { kw: "how to choose a design agency", vol: 140, diff: "Low", page: "Blog Post", exists: true, position: "Draft" },
+      // Surfaced by daily keyword research (Runs 1-7) — high priority, not previously tracked
+      { kw: "design system agency london", vol: 70, diff: "Low", page: "/services/design-system/", exists: false, position: "—" },
+      { kw: "design system audit", vol: 480, diff: "Medium", page: "/services/design-system/", exists: false, position: "—" },
+      { kw: "how much does a website cost", vol: 2900, diff: "Medium", page: "/pricing/", exists: false, position: "—" },
+      { kw: "how much does a ux audit cost", vol: 320, diff: "Medium", page: "/pricing/", exists: false, position: "—" },
+      { kw: "design system roi", vol: 590, diff: "Medium", page: "Blog Post", exists: false, position: "—" },
+      { kw: "ux audit checklist", vol: 720, diff: "Medium", page: "Blog Post / Lead Magnet", exists: false, position: "—" },
+      { kw: "design system for startup", vol: 210, diff: "Low", page: "/for-startups/", exists: false, position: "—" },
+      { kw: "fintech design system", vol: 110, diff: "Low", page: "/services/design-system/", exists: false, position: "—" },
     ];
 
     const kwByIntent = [
       { name: "Transactional", value: 5 },
-      { name: "Informational", value: 6 },
-      { name: "Commercial", value: 3 },
+      { name: "Informational", value: 8 },
+      { name: "Commercial", value: 9 },
       { name: "Navigational", value: 1 },
     ];
 
@@ -146,22 +155,106 @@ export default {
       { name: "Informational", value: 3, color: C.indigo },
     ];
 
-    // ─── COMPETITORS ──────────────────────────────────────────────
+    // ─── COMPETITORS (19 reviewed across daily research Runs 1-7) ───
     const competitors = [
-      { name: "Clay (clay.global)", threat: "High", type: "Premium", note: "SF-based, serves startups to Fortune 500. Strong blog + case studies. Individual service pages (UX, Branding, Web, Web3). Content-heavy SEO strategy." },
-      { name: "Made by Shape", threat: "High", type: "Direct", note: "Manchester, since 2010. 445+ dev posts, 118+ design posts, 131+ branding posts. Ranks for 7,500+ keywords. Craft CMS authority. Strong local SEO." },
-      { name: "Clearleft", threat: "Medium", type: "UX-focused", note: "UK's first UX agency. Thought leadership on design systems, accessibility, AI. Podcast. 50+ articles. Service pages for Design Systems, DesOps, Research." },
-      { name: "Supercreative", threat: "Low", type: "Educational", note: "Pivoted to courses/tools. Curated '1000 Websites' list. Minimal traditional SEO. Less direct competitor than initially thought." },
-      { name: "Bureau Bureau", threat: "Low", type: "Boutique", note: "London brand strategy studio. Clean positioning but light content footprint. 'Bureau' is generic term, hard to rank for." },
-      { name: "Else London", threat: "Low", type: "Branding", note: "Branding focused. Limited web presence but good social following." },
+      // Tier 1: highest-threat — premium / global / direct London top-of-SERP
+      { name: "Clay (clay.global)", threat: "High", type: "Global premium", note: "SF-HQ. Enterprise clients (Slack, Snapchat, Discover, Marqeta). Individual service pages (UX, Branding, Web, Web3). Content-heavy SEO strategy. Tags 'Design System' on most case studies. Heavy Generative AI positioning." },
+      { name: "Pentagram", threat: "High", type: "Premium independent", note: "World's largest independent design consultancy. Newly visible in 'web design agency london' top 10 (Runs 6-7)." },
+      { name: "KOTA (kota.co.uk)", threat: "High", type: "Direct London/NYC", note: "#1 on 'web design agency london'. Award-winning, strong portfolio + brand-recall." },
+      { name: "DEPT", threat: "High", type: "Global", note: "4,000+ specialists, 400 in London. Dominates 'london digital agency'. Owns design-system service-page in NL." },
+      { name: "Plug & Play (ux-design.agency)", threat: "High", type: "Direct London", note: "Persistent #1 on 'ux design agency london'. EMD-style domain, strong topical authority." },
+      { name: "Made by Shape (madebyshape.co.uk)", threat: "High", type: "Manchester direct", note: "Manchester, since 2010. 445+ dev posts, 118+ design posts, 131+ branding posts. Ranks for 7,500+ keywords. Craft CMS authority. Ranks for London terms despite Manchester base." },
+      // Tier 2: medium-threat — direct London competitors
+      { name: "Hallam", threat: "Medium", type: "Direct UK", note: "UK's most recommended firm 3 years running. Stable presence in 'london digital agency'." },
+      { name: "Vector (vector-digital.co.uk)", threat: "Medium", type: "SaaS-specialist London", note: "SaaS UX/UI specialist. Consolidated in 'ux design agency london' top 10 across Runs 5-7." },
+      { name: "Creative Navy", threat: "Medium", type: "Premium product design", note: "London + Berlin. Ford, Discovery, Philips, Vodafone client list. Award-winning." },
+      { name: "Shoreditch Design", threat: "Medium", type: "Direct London", note: "4 years old but landed Wise, NHS, Brewdog. Strong logo-placement SEO." },
+      { name: "Tenet (wearetenet.com)", threat: "Medium", type: "Direct London", note: "450+ projects. Publishes pricing transparently (£70-£130/hr; £8k-£15k audits; £30k-£100k+ engagements) — cleanest /pricing/ template TD could copy." },
+      { name: "Make it Clear", threat: "Medium", type: "UX consultancy London", note: "Premier London UX agency. Owns 'design system' London variant explicitly." },
+      { name: "Pixelfield (pixelfield.co.uk)", threat: "Medium", type: "Direct London product studio", note: "13 years. 4.9 Google. Now AI-saturated (15+ AI sub-pages). Zero design-system surface area — direct gap TD can occupy." },
+      { name: "Humaan (humaan.com)", threat: "Medium", type: "Global awards-led", note: "Perth + LA, 14 years. Award-stack heavy. Lists 'Design Systems' as top-line service equal to UX/Mobile. Geo-distant from London buyers." },
+      { name: "Yellowball", threat: "Medium", type: "Direct London boutique", note: "New entrant in 'web design agency london' top 10 (Run 7). 95+ five-star reviews, 250+ projects." },
+      { name: "LWDA (londonwebdesignagency.com)", threat: "Medium", type: "Direct London WordPress", note: "Stable in 'web design agency london' top 10. 'Since 1996, from £8,000' pricing-on-page." },
+      { name: "Further (further.group)", threat: "Medium", type: "Premium", note: "Surfaced in 'web design agency london' top 10 (Run 5). Premium-tilted." },
+      { name: "Clearleft", threat: "Medium", type: "UX consultancy Brighton", note: "UK's first UX agency. Thought leadership on design systems, accessibility, AI. Podcast. 50+ articles. Service pages for Design Systems, DesOps, Research. Conference presence (Leading Design)." },
+      { name: "ustwo (ustwo.com)", threat: "Medium", type: "Premium product studio", note: "Reviewed Run 6. Notable case study format and process pages." },
+      // Tier 3: low-threat — boutiques / branding-tilted / less direct overlap
+      { name: "Dusted", threat: "Low-Med", type: "Boutique London", note: "Reviewed Run 6. Strong verticalised sector pages — direct precedent for TD industry-page strategy." },
+      { name: "NU Creative (nucreative.co.uk)", threat: "Low", type: "Boutique London", note: "Reviewed Run 6. Claims sustainable web design but thinly evidenced — niche TD could occupy." },
+      { name: "Else London", threat: "Low", type: "Branding boutique", note: "Branding focused. Limited web presence but good social following." },
+      { name: "Supercreative", threat: "Low", type: "Educational/Direct London", note: "Pivoted to courses/tools. Curated '1000 Websites' list. Minimal traditional SEO. Less direct competitor than initially thought." },
+      { name: "Bureau (bureau-va.com)", threat: "Low", type: "Boutique London", note: "London brand strategy studio. Clean positioning but light content footprint. 'Bureau' is generic term, hard to rank for." },
+      { name: "How & How", threat: "Low", type: "Branding London/LA", note: "Branding agency. Owns design-system positioning rhetorically. Reviewed Run 4." },
+      { name: "Built By Buck", threat: "Low", type: "Direct global", note: "Reviewed Run 3. Strong creative-direction footprint." },
+      { name: "Ragged Edge", threat: "Low", type: "Branding London", note: "Reviewed Run 4. Premium branding studio; strong case studies." },
+      { name: "Koto Studio", threat: "Low", type: "Branding London/Berlin/NYC", note: "Reviewed Run 3. Tier-1 brand-design, low overlap with TD's UX focus." },
+      { name: "Bureau for Visual Affairs", threat: "Low", type: "Branding boutique", note: "Reviewed Run 2. Niche design terms." },
+      { name: "The Boundless", threat: "Low", type: "Branding boutique", note: "Reviewed Run 5. Limited overlap." },
+    ];
+
+    // ─── DAILY KEYWORD RESEARCH (Runs 1-7, 14 Apr - 4 May 2026) ───────
+    const researchRuns = [
+      { run: 1, date: "2026-04-14", atp: "ux design agency london", competitors: "clay.global, madebyshape, clearleft", topFinding: "Universal /pricing/ page surfaced as top informational wedge" },
+      { run: 2, date: "2026-04-14", atp: "london digital agency", competitors: "supercreative, bureau-va, else.london", topFinding: "Pricing PAA stacking confirmed (2-for-2)" },
+      { run: 3, date: "2026-04-21", atp: "web design agency london", competitors: "humaan, builtbybuck, koto", topFinding: "Pricing PAA 3-for-3; portfolio gap on case study hub" },
+      { run: 4, date: "2026-04-22", atp: "logo design london", competitors: "ragged-edge, how.studio, kota.co.uk", topFinding: "Timeline-question cluster surfaced ('how long does a logo take')" },
+      { run: 5, date: "2026-04-23", atp: "mobile app design agency", competitors: "pentagram, further, theboundless", topFinding: "First new entrant on 'web design agency london' SERP (Further)" },
+      { run: 6, date: "2026-04-27", atp: "ux audit london", competitors: "dusted, nu-creative, ustwo", topFinding: "Strongest service-page gap surfaced: /services/ux-audit/" },
+      { run: 7, date: "2026-05-04", atp: "design system agency", competitors: "humaan, clay, pixelfield", topFinding: "Second-strongest service-page gap: /services/design-system/" },
+    ];
+
+    // Cross-run patterns confirmed across 7 runs
+    const crossRunPatterns = [
+      { pattern: "Universal /pricing/ page", stacking: "7-for-7", volume: "~3,680/mo", note: "Every ATP head term has surfaced pricing as top informational wedge. Cumulative addressable volume across pricing queries." },
+      { pattern: "'For startup' variant", stacking: "7-for-7", volume: "~600+/mo combined", note: "Every ATP run surfaced a 'for startup' long-tail. Single /for-startups/ landing page consolidates cumulative anchors." },
+      { pattern: "Timeline-explainer cluster", stacking: "4-for-4", volume: "~880/mo combined", note: "How long does X take — logo, mobile app, ux audit, design system. All KD ≤ 30. Series of 4 explainer posts overdue." },
+      { pattern: "No local pack on ATP head terms", stacking: "8-for-8", volume: "n/a (structural)", note: "Local pack is structurally absent for design-services intent. Geo modifiers don't trigger map results." },
+      { pattern: "'Web design agency london' SERP fluidity", stacking: "3 new entrants in 3 runs", volume: "~1,300/mo head", note: "Further (R5), Pentagram (R6), Yellowball (R7). SERP top is fluid; TD's absence is what's stable, not the SERP itself." },
+      { pattern: "Pricing transparency rewarded", stacking: "4 agencies in 2 runs", volume: "n/a (CTR signal)", note: "UX Agency London 'from £1,000', Trafiki 'from £1,500+VAT', LWDA 'from £8,000', Tenet '£70-£130/hr · £8k-£15k · £30k-£100k+'." },
+    ];
+
+    // Top quick-win opportunities (KD ≤ 25 + commercial intent + clear page route)
+    const researchOpportunities = [
+      { kw: "design system agency london", vol: 70, kd: 24, intent: "commercial", page: "/services/design-system/", priority: "Highest", run: "R7", note: "Geo-gap: zero London agencies in top 10 on bare head term. Direct service-page gap." },
+      { kw: "ux audit london", vol: 140, kd: 28, intent: "commercial", page: "/services/ux-audit/", priority: "Highest", run: "R6", note: "Direct-agency-dominant SERP (not directory-gated). TD already does UX audits." },
+      { kw: "design system audit london", vol: 30, kd: 16, intent: "commercial", page: "/services/design-system/", priority: "High", run: "R7", note: "Pairs with /ux-audit/ as a sister sub-service." },
+      { kw: "ux audit cost uk", vol: 140, kd: 22, intent: "informational", page: "/pricing/", priority: "High", run: "R6", note: "Direct input to universal pricing page (7-for-7)." },
+      { kw: "how much does a website cost", vol: 2900, kd: 30, intent: "informational", page: "/pricing/", priority: "High", run: "R1-2", note: "Highest-volume pricing anchor. Listicle-dominated SERP, achievable." },
+      { kw: "how much does a ux audit cost", vol: 320, kd: 26, intent: "informational", page: "/pricing/", priority: "High", run: "R6", note: "Pricing page anchor + /ux-audit/ sub-anchor." },
+      { kw: "how much does a design system cost", vol: 260, kd: 28, intent: "informational", page: "/pricing/", priority: "High", run: "R7", note: "Pricing page anchor + /services/design-system/ sub-anchor." },
+      { kw: "how long does a ux audit take", vol: 170, kd: 20, intent: "informational", page: "Blog (timeline series)", priority: "High", run: "R6", note: "Timeline-explainer cluster (4-for-4)." },
+      { kw: "how long does it take to build a design system", vol: 320, kd: 30, intent: "informational", page: "Blog (timeline series)", priority: "High", run: "R7", note: "Timeline-explainer cluster (4-for-4)." },
+      { kw: "ux audit checklist", vol: 720, kd: 38, intent: "informational", page: "Blog + Lead Magnet PDF", priority: "High", run: "R6", note: "Highest-vol UX-audit variant. Downloadable checklist for lead capture." },
+      { kw: "design system for startup", vol: 210, kd: 26, intent: "commercial", page: "/for-startups/", priority: "High", run: "R7", note: "Stacks with 7-for-7 'for startup' pattern." },
+      { kw: "design system roi", vol: 590, kd: 30, intent: "informational", page: "Blog + Spreadsheet", priority: "High", run: "R7", note: "Explainer with downloadable ROI calculator. Lead-gen flywheel with /pricing/." },
+      { kw: "fintech design system", vol: 110, kd: 26, intent: "commercial", page: "Sector page", priority: "Medium", run: "R7", note: "Matches Truphone portfolio." },
+      { kw: "design system for saas", vol: 320, kd: 30, intent: "commercial", page: "Sector page", priority: "Medium", run: "R7", note: "Matches Remotify / Rapport portfolio." },
+      { kw: "figma design system agency", vol: 140, kd: 28, intent: "commercial", page: "/services/design-system/", priority: "Medium", run: "R7", note: "Tool-modifier; Figma Variables (2024) + Tokens Studio adoption growing." },
+      { kw: "ecommerce ux audit london", vol: 70, kd: 24, intent: "commercial", page: "/services/ux-audit/", priority: "Medium", run: "R6", note: "Sub-anchor; matches Dinner Twist / OOC / MLS portfolio." },
+      { kw: "website ux audit london", vol: 110, kd: 26, intent: "commercial", page: "/services/ux-audit/", priority: "Medium", run: "R6", note: "Natural sub-page or section." },
+      { kw: "design tokens consultancy", vol: 70, kd: 22, intent: "commercial", page: "/services/design-system/", priority: "Medium", run: "R7", note: "Figma Variables / Tokens Studio adoption rising." },
+      { kw: "ux audit for saas", vol: 90, kd: 20, intent: "commercial", page: "/services/ux-audit/", priority: "Medium", run: "R6", note: "Sector sub-anchor." },
+      { kw: "freelance ux audit london", vol: 40, kd: 16, intent: "commercial", page: "/services/ux-audit/", priority: "Low-Med", run: "R6", note: "TD as principal-led boutique reads as the freelance-feeling alternative." },
+    ];
+
+    // SERP rank tracking on 3 canonical keywords (TD position across 7 runs)
+    const serpTracking = [
+      { keyword: "london digital agency", run1: "Not in top 10", run2: "Not in top 10", run3: "Not in top 10", run4: "Not in top 10", run5: "Not in top 10", run6: "Not in top 10", run7: "Not in top 10", change: "No change. SERP directory-heavy (DAN, Companies House, LinkedIn) + KOTA/DEPT/Make/Wholegrain/Critical Mass/Pentagram/Hallam/Propeller/LMC." },
+      { keyword: "ux design agency london", run1: "Not in top 10", run2: "Not in top 10", run3: "Not in top 10", run4: "Not in top 10", run5: "Not in top 10", run6: "Not in top 10", run7: "Not in top 10", change: "No change. Plug & Play persistent #1. Vector consolidating (SaaS). Tenet visible with explicit pricing transparency (R7)." },
+      { keyword: "web design agency london", run1: "Not in top 10", run2: "Not in top 10", run3: "Not in top 10", run4: "Not in top 10", run5: "Not in top 10", run6: "Not in top 10", run7: "Not in top 10", change: "SERP fluid: 3 new entrants in 3 runs (Further R5, Pentagram R6, Yellowball R7). KOTA stable #1. TD absent throughout — but SERP rewards entrants, so a purpose-built page can plausibly break top 10." },
     ];
 
     // ─── MISSING PAGES (GAP ANALYSIS) ────────────────────────────
     const missingPages = [
+      { page: "Universal Pricing Page (/pricing/)", volume: "~3,680/mo combined", impact: "Critical", reason: "7-for-7 corroboration across all ATP runs. Cumulative addressable volume from pricing queries (how much does a website / ux audit / design system / logo / mobile app / branding / redesign cost). Pricing transparency rewarded — Tenet/LWDA/UX Agency London publish numbers and rank." },
+      { page: "/services/ux-audit/", volume: "~670+/mo (head + sub-anchors)", impact: "Critical", reason: "Run 6 highest-conviction gap. Direct-agency-dominant SERP (NOT directory-gated, unusual). KD ~28 head term + ~530/mo across pricing, timeline, checklist, sector sub-anchors. TD already does UX audits — service exists, page does not." },
+      { page: "/services/design-system/", volume: "~700+/mo (head + sub-anchors)", impact: "Critical", reason: "Run 7 second-strongest gap. Geo-gap is widest of any ATP analysed: zero London-headquartered agencies in top 10 on bare head term. Pixelfield (closest London-geo competitor) has zero design-system surface area." },
       { page: "Individual Service Pages (UX, Branding, Web, Mobile, Strategy)", volume: "3,000+/mo combined", impact: "Critical", reason: "Services page is a single page listing everything. Competitors have dedicated /services/ux-design/, /services/branding/ etc. that rank individually." },
-      { page: "Industry/Sector Pages (Healthcare, Fintech, Education)", volume: "500+/mo combined", impact: "High", reason: "11 case studies span multiple industries. No landing pages targeting 'healthcare ux design' or 'fintech design agency'." },
-      { page: "Process/Approach Page", volume: "200+/mo", impact: "Medium", reason: "No dedicated page explaining how you work. 'design process' and 'ux design process' have strong search volume." },
+      { page: "/for-startups/ Sector Landing", volume: "~600+/mo combined", impact: "High", reason: "7-for-7 'for startup' pattern across all ATP runs. Single sector landing page consolidates: logo design for startup, mobile app for startup, ux audit for startup, design system for startup, etc." },
+      { page: "Industry/Sector Pages (Healthcare, Fintech, Education)", volume: "500+/mo combined", impact: "High", reason: "11 case studies span multiple industries. No landing pages targeting 'healthcare ux design' or 'fintech design agency'. Truphone → fintech. My Life Story → healthcare. Remotify/Rapport → SaaS." },
       { page: "Case Study Hub with Filters", volume: "N/A (internal link equity)", impact: "High", reason: "Portfolio items are flat list under /work/. No filterable hub page, no category pages, no proper internal linking." },
+      { page: "Timeline-Explainer Series (4 posts)", volume: "~880/mo combined", impact: "High", reason: "4-for-4 timeline-question cluster: how long does a logo / mobile app / ux audit / design system take. All KD ≤ 30. Shared format + FAQ schema + cross-linking earns four anchors at once." },
+      { page: "Process/Approach Page", volume: "200+/mo", impact: "Medium", reason: "No dedicated page explaining how you work. 'design process' and 'ux design process' have strong search volume." },
       { page: "FAQ Page", volume: "Long-tail capture", impact: "Medium", reason: "No FAQ page to capture 'how much does a website cost' (2,900/mo), 'how long does web design take' (320/mo), etc." },
       { page: "London / Location Page", volume: "400+/mo", impact: "Medium", reason: "No dedicated London landing page. Relying on schema and meta only for local signals." },
     ];
@@ -628,6 +721,117 @@ export default {
               React.createElement("div", { style: { fontSize: 12, color: C.textSec, marginTop: 4 } }, mp.reason)
             );
           })
+        ),
+
+        // ─── DAILY KEYWORD RESEARCH SECTION (Runs 1-7) ───
+        React.createElement("div", { style: { marginTop: 24, padding: "16px 0 8px", borderTop: "2px solid " + C.border } },
+          React.createElement("div", { style: { fontSize: 11, fontWeight: 600, color: C.textMut, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 4 } }, "Daily Keyword Research"),
+          React.createElement("div", { style: { fontSize: 18, fontWeight: 700, color: C.text } }, "7 runs complete \\u00B7 14 Apr \\u2013 4 May 2026"),
+          React.createElement("div", { style: { fontSize: 13, color: C.textSec, marginTop: 4 } }, "Automated daily run paused after Run 7. Insights now stacking — recommendations re-corroborate rather than surface new directions.")
+        ),
+
+        React.createElement("div", { style: s.grid4 },
+          React.createElement(StatCard, { label: "Runs complete", value: researchRuns.length, color: C.indigo }),
+          React.createElement(StatCard, { label: "Competitors reviewed", value: 19, color: C.pass, sub: "Across 21 slots (2 repeats)" }),
+          React.createElement(StatCard, { label: "Opportunities tracked", value: 140, color: C.warn, sub: "In Daily_Research_Additions.xlsx" }),
+          React.createElement(StatCard, { label: "Pricing PAA stacking", value: "7/7", color: C.alert, sub: "Universal /pricing/ corroborated" })
+        ),
+
+        React.createElement(Section, { title: "Cross-run patterns confirmed", extra: React.createElement(Badge, { type: "info" }, "All Runs 1\\u20137") },
+          React.createElement("table", { style: s.table },
+            React.createElement("thead", null,
+              React.createElement("tr", null,
+                ["Pattern", "Stacking", "Volume", "Note"].map(function(h) {
+                  return React.createElement("th", { key: h, style: s.th }, h);
+                })
+              )
+            ),
+            React.createElement("tbody", null,
+              crossRunPatterns.map(function(p, i) {
+                return React.createElement("tr", { key: i },
+                  React.createElement("td", { style: Object.assign({}, s.td, { fontWeight: 600 }) }, p.pattern),
+                  React.createElement("td", { style: s.td }, React.createElement(Badge, { type: "warn" }, p.stacking)),
+                  React.createElement("td", { style: s.td }, React.createElement("span", { style: { fontSize: 12, color: C.textSec } }, p.volume)),
+                  React.createElement("td", { style: s.td }, React.createElement("span", { style: { fontSize: 12, color: C.textSec } }, p.note))
+                );
+              })
+            )
+          )
+        ),
+
+        React.createElement(Section, { title: "Top quick-win opportunities", extra: React.createElement(Badge, { type: "info" }, researchOpportunities.length + " ranked") },
+          React.createElement("table", { style: s.table },
+            React.createElement("thead", null,
+              React.createElement("tr", null,
+                ["Keyword", "Vol/mo", "KD", "Intent", "Target Page", "Priority", "Run"].map(function(h) {
+                  return React.createElement("th", { key: h, style: s.th }, h);
+                })
+              )
+            ),
+            React.createElement("tbody", null,
+              researchOpportunities.map(function(o, i) {
+                return React.createElement("tr", { key: i },
+                  React.createElement("td", { style: Object.assign({}, s.td, { fontWeight: 500 }) }, o.kw),
+                  React.createElement("td", { style: s.td }, React.createElement("span", { style: { fontWeight: 600 } }, o.vol.toLocaleString())),
+                  React.createElement("td", { style: s.td }, React.createElement(Badge, { type: o.kd >= 30 ? "warn" : o.kd >= 20 ? "info" : "pass" }, o.kd)),
+                  React.createElement("td", { style: s.td }, React.createElement(Badge, { type: o.intent === "commercial" ? "warn" : "info" }, o.intent)),
+                  React.createElement("td", { style: s.td }, React.createElement("span", { style: { fontSize: 12 } }, o.page)),
+                  React.createElement("td", { style: s.td }, React.createElement(Badge, { type: impact(o.priority === "Highest" ? "Critical" : o.priority) }, o.priority)),
+                  React.createElement("td", { style: s.td }, React.createElement("span", { style: { fontSize: 11, color: C.textMut, fontWeight: 600 } }, o.run))
+                );
+              })
+            )
+          )
+        ),
+
+        React.createElement(Section, { title: "SERP tracking \\u2014 3 canonical keywords across 7 runs", extra: React.createElement(Badge, { type: "fail" }, "TD absent throughout") },
+          React.createElement("table", { style: s.table },
+            React.createElement("thead", null,
+              React.createElement("tr", null,
+                ["Keyword", "R1", "R2", "R3", "R4", "R5", "R6", "R7", "Reading"].map(function(h) {
+                  return React.createElement("th", { key: h, style: s.th }, h);
+                })
+              )
+            ),
+            React.createElement("tbody", null,
+              serpTracking.map(function(t, i) {
+                return React.createElement("tr", { key: i },
+                  React.createElement("td", { style: Object.assign({}, s.td, { fontWeight: 600 }) }, t.keyword),
+                  React.createElement("td", { style: s.td }, React.createElement(Badge, { type: "fail" }, "—")),
+                  React.createElement("td", { style: s.td }, React.createElement(Badge, { type: "fail" }, "—")),
+                  React.createElement("td", { style: s.td }, React.createElement(Badge, { type: "fail" }, "—")),
+                  React.createElement("td", { style: s.td }, React.createElement(Badge, { type: "fail" }, "—")),
+                  React.createElement("td", { style: s.td }, React.createElement(Badge, { type: "fail" }, "—")),
+                  React.createElement("td", { style: s.td }, React.createElement(Badge, { type: "fail" }, "—")),
+                  React.createElement("td", { style: s.td }, React.createElement(Badge, { type: "fail" }, "—")),
+                  React.createElement("td", { style: Object.assign({}, s.td, { fontSize: 12, color: C.textSec }) }, t.change)
+                );
+              })
+            )
+          )
+        ),
+
+        React.createElement(Section, { title: "Run-by-run summary" },
+          React.createElement("table", { style: s.table },
+            React.createElement("thead", null,
+              React.createElement("tr", null,
+                ["Run", "Date", "ATP term", "Competitors", "Top finding"].map(function(h) {
+                  return React.createElement("th", { key: h, style: s.th }, h);
+                })
+              )
+            ),
+            React.createElement("tbody", null,
+              researchRuns.map(function(r) {
+                return React.createElement("tr", { key: r.run },
+                  React.createElement("td", { style: Object.assign({}, s.td, { fontWeight: 700, color: C.indigo }) }, "R" + r.run),
+                  React.createElement("td", { style: s.td }, React.createElement("span", { style: { fontSize: 12, color: C.textMut } }, r.date)),
+                  React.createElement("td", { style: Object.assign({}, s.td, { fontWeight: 500 }) }, "\\u201C" + r.atp + "\\u201D"),
+                  React.createElement("td", { style: s.td }, React.createElement("span", { style: { fontSize: 12, color: C.textSec } }, r.competitors)),
+                  React.createElement("td", { style: s.td }, React.createElement("span", { style: { fontSize: 13 } }, r.topFinding))
+                );
+              })
+            )
+          )
         )
       );
     }
@@ -772,6 +976,8 @@ export default {
         { action: "Add auto-CTA section to non-Elementor posts", category: "Content", date: "10 Apr 2026" },
         { action: "Enable Blocksy author box + boxed content style", category: "E-E-A-T", date: "10 Apr 2026" },
         { action: "Set up WordPress author profile (Michael Trevatt)", category: "E-E-A-T", date: "10 Apr 2026" },
+        { action: "Set up daily keyword research scheduled task", category: "Keywords", date: "13 Apr 2026" },
+        { action: "Run daily keyword research \\u2014 7 runs, 19 competitors, 140 opportunities tracked", category: "Keywords", date: "14 Apr \\u2013 4 May 2026" },
       ];
 
       const michaelActions = [
@@ -780,6 +986,11 @@ export default {
         { action: "Optimise Google Business Profile", impact: "High", effort: "Low", category: "Local", why: "GBP claimed & verified. Next: upload 10+ project photos, add services list, write first GBP post, ask 3-5 past clients for reviews. Only 1 review currently." },
         { action: "Register on Clutch, DesignRush, The Manifest", impact: "High", effort: "Medium", category: "E-E-A-T", why: "External validation + backlinks from authoritative design directories. Clutch alone can generate leads. Each profile takes ~30 min to complete." },
         { action: "Create individual service pages in Elementor", impact: "Critical", effort: "High", category: "Content", why: "3,000+/mo combined volume. Need: /services/ux-design/, /services/branding/, /services/web-design/, /services/mobile-app-design/, /services/digital-strategy/. Claude can draft content; you build in Elementor." },
+        { action: "Build /services/ux-audit/ landing page", impact: "Critical", effort: "Medium", category: "Content", why: "Run 6 highest-conviction gap from 7 runs of keyword research. SERP is direct-agency-dominant (NOT directory-gated, unusual). KD ~28 head term + ~530/mo across pricing/timeline/checklist/sector sub-anchors on the same page. TD already does UX audits. Claude can draft full content + downloadable checklist PDF." },
+        { action: "Build /services/design-system/ landing page", impact: "Critical", effort: "Medium", category: "Content", why: "Run 7 second-strongest gap. Geo-gap is widest of any ATP analysed: zero London-headquartered agencies in top 10. Pixelfield (closest London-geo competitor) has zero design-system surface area. Claude can draft full content. Pair with /services/ux-audit/." },
+        { action: "Build /pricing/ universal pricing page", impact: "Critical", effort: "Medium", category: "Content", why: "7-for-7 corroboration across all ATP runs. ~3,680/mo cumulative addressable volume from pricing queries. Tenet's '£70-£130/hr · £8k-£15k audits · £30k-£100k+ engagements' three-tier model is the cleanest direct template. Pricing transparency is rewarded across multiple SERPs." },
+        { action: "Build /for-startups/ sector landing page", impact: "High", effort: "Medium", category: "Content", why: "7-for-7 'for startup' pattern across all ATP runs. Single landing page consolidates ~600+/mo from logo / mobile app / ux audit / design system / branding 'for startup' anchors." },
+        { action: "Write timeline-explainer blog series (4 posts)", impact: "High", effort: "Medium", category: "Content", why: "4-for-4 timeline-question cluster: how long does a logo / mobile app / ux audit / design system take. All KD ≤ 30. Shared format + FAQ schema + cross-linking earns four anchors at once. Claude can draft all four in one session." },
         { action: "Create industry landing pages (Healthcare, Fintech, Education)", impact: "High", effort: "High", category: "Content", why: "Target healthcare ux design, fintech design agency etc. Link to relevant case studies. Claude can draft; you build in Elementor." },
         { action: "Create a dedicated author/credentials page", impact: "Medium", effort: "Low", category: "E-E-A-T", why: "Author box now shows on all posts with bio. A standalone /about/michael-trevatt/ page with credentials, awards, and social links would strengthen E-E-A-T further." },
         { action: "Run PageSpeed / Core Web Vitals audit", impact: "Medium", effort: "Low", category: "Technical", why: "No performance baseline. Run Lighthouse on Home, Services, a blog post. Note LCP, CLS, INP scores. Share results and Claude can recommend fixes." },
@@ -788,7 +999,9 @@ export default {
       ];
 
       const claudeActions = [
-        { action: "Set up daily keyword research task for Trevatt Design", impact: "High", effort: "Low", category: "Keywords", why: "Replicate the ES Therapy methodology: daily competitor analysis, keyword gap discovery, SERP monitoring. Runs automatically like the ES Therapy task." },
+        { action: "Draft /services/ux-audit/ page content + checklist PDF", impact: "Critical", effort: "Medium", category: "Content", why: "Run 6 highest-conviction gap. Need: hero, scope, deliverables, pricing tiers (Tenet-style: £1k-£15k), FAQ section answering pricing/timeline/scope queries, downloadable UX-audit-checklist PDF as lead magnet." },
+        { action: "Draft /services/design-system/ page content", impact: "Critical", effort: "Medium", category: "Content", why: "Run 7 second-strongest gap. Need: hero, what we deliver (tokens, components, docs), process, sector anchors (SaaS, fintech, ecommerce), Figma + handoff section, pricing tier reference, FAQ. Cross-link to /services/ux-audit/ as discovery phase." },
+        { action: "Draft /pricing/ universal page content", impact: "Critical", effort: "Medium", category: "Content", why: "Three-tier structure (audit / project / engagement) modelled on Tenet's transparent pricing. FAQ schema for pricing PAA capture across 7 query clusters." },
         { action: "Draft content for individual service pages", impact: "Critical", effort: "Medium", category: "Content", why: "Write SEO-optimised copy for each service page once Michael creates the Elementor templates." },
         { action: "Draft content for industry landing pages", impact: "High", effort: "Medium", category: "Content", why: "Healthcare UX, fintech design, education design. Link to case studies. Ready when pages exist." },
         { action: "Write long-form case study: ES Therapy Centre", impact: "High", effort: "Medium", category: "Content", why: "Demonstrates healthcare UX expertise. Targets therapy website design, healthcare ux keywords." },
